@@ -1,9 +1,9 @@
 package com.company;
 
-import org.openqa.selenium.By;
+/*import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;*/
 
 import java.util.List;
 
@@ -119,7 +119,7 @@ public class Main {
 
         //вывести все значения массива*/
 
-        System.setProperty("webdriver.chrome.driver", "E:\\Course\\2AutomationCourseJava\\chromedriver.exe");
+       /* System.setProperty("webdriver.chrome.driver", "E:\\Course\\2AutomationCourseJava\\chromedriver.exe");
 
         WebDriver w = new ChromeDriver();
        // w.quit();
@@ -148,8 +148,12 @@ public class Main {
 
         }
 
-        for (address = 0; address < 10; address++ );
-        
+       // for (address = 0; address < 10; address++ );
+
+
+        */
+
+
 
 
 
