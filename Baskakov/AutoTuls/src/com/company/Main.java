@@ -33,10 +33,10 @@ public class Main {
         WebElement c = w.findElement(By.id("rso"));
         int i=0;
         while (i==0){
-            if (i <= w.findElement(By.tagName("a"))){
+            if (i <= w.findElements(By.tagName("a")).size()){
                 i=i+1;
             }
-
+            System.out.println(i);
         }
         List<WebElement> l = c.findElements(By.tagName("a"));
         

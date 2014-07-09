@@ -1,0 +1,109 @@
+Microsoft Windows XP [Версия 5.1.2600]
+(С) Корпорация Майкрософт, 1985-2001.
+
+C:\Documents and Settings\user>git
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty Git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and integrate with another repository or a local branch
+
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+'git help -a' and 'git help -g' lists available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+
+C:\Documents and Settings\user>git push
+fatal: Not a git repository (or any of the parent directories): .git
+
+C:\Documents and Settings\user>cd
+C:\Documents and Settings\user
+
+C:\Documents and Settings\user>D:
+
+D:\>D:\Baskakov_Automation
+"D:\Baskakov_Automation" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+D:\>Baskako_Automation
+"Baskako_Automation" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+D:\>cd
+D:\
+
+D:\>cd Baskakov_Automation
+
+D:\Baskakov_Automation>dit clone https://github.com/lastperson/qfac3.git
+"dit" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+D:\Baskakov_Automation>git clone https://github.com/lastperson/qfac3.git
+Cloning into 'qfac3'...
+remote: Counting objects: 32, done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 32 (delta 1), reused 32 (delta 1)
+Unpacking objects: 100% (32/32), done.
+Checking connectivity... done.
+
+D:\Baskakov_Automation>git push
+fatal: Not a git repository (or any of the parent directories): .git
+
+D:\Baskakov_Automation>cd qfac3
+
+D:\Baskakov_Automation\qfac3>git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+In Git 2.0, Git will default to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': bbaskakov
+Password for 'https://bbaskakov@github.com':
+Counting objects: 17, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (16/16), 6.10 KiB | 0 bytes/s, done.
+Total 16 (delta 1), reused 0 (delta 0)
+To https://github.com/lastperson/qfac3.git
+   2131452..ad8f0ce  master -> master
+
+D:\Baskakov_Automation\qfac3>

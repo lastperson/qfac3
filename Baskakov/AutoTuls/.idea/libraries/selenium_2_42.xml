@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="selenium-2.42">
     <CLASSES>
-      <root url="file://D:/Baskakov_Automation/selenium-2.42.2" />
+      <root url="file://$PROJECT_DIR$/../../../selenium-2.42.2" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="file://D:/Baskakov_Automation/selenium-2.42.2" />
+      <root url="file://$PROJECT_DIR$/../../../selenium-2.42.2" />
     </SOURCES>
-    <jarDirectory url="file://D:/Baskakov_Automation/selenium-2.42.2" recursive="false" />
-    <jarDirectory url="file://D:/Baskakov_Automation/selenium-2.42.2" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../selenium-2.42.2" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../selenium-2.42.2" recursive="false" type="SOURCES" />
   </library>
 </component>
