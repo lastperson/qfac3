@@ -10,9 +10,16 @@ public class Main2 {
     Door c = new Door("Wood","Orange", false);
 
         a.Color = "Yellow";
-        b.Color = "White";
+        b.Color = "Black";
+        c.Color="Yellow";
         a.Close();
         b.Open();
+
+        System.out.println(Door.correctcolor(a,b,c));
+
+        System.out.println(Door.useee(a,b,c));
+
+
 
         System.out.println("Door a : Material-" + a.WhatsMaterial()
                 + ", Color - " + a.Color+
@@ -28,7 +35,7 @@ public class Main2 {
                 + ", Color - " + c.Color+
                 ", isOpened -" + c.isOpened());
 
-
+        System.out.println(Pirate.coun("asdasdasdsd"));
 
 
     }
