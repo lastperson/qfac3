@@ -27,6 +27,15 @@ public class Door {
         return this.isOpened;
 
     }
+    public  String printVersion(){
+        return "Материал - " + this.matter + ", цвет - " + this.color + ", откритаЛи - " + this.isOpened;
+    }
+    public static boolean isEqual(Door a, Door b){
+        return a.color==b.color;
+    }
+    public boolean isEqualnotst(Door a, Door b){
+        return a.color==b.color;
+    }
 }
 
 
