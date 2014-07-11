@@ -32,5 +32,25 @@ public class Door {
         return this.isOpen;
 
     }
+    public String printable(){
+        return "Материал - " + material + " , Цвет " + color + " Состояние двери " + isOpen();
+    }
+
+    public static boolean isSameColor(Door g, Door l, Door o, Door s) {
+        if (g.color != l.color) {
+
+            return false;
+
+        }
+
+        else if (o.color == s.color) {
+            return true;
+        }
+         return false;
+
+
+
+    }
+
 
 }
