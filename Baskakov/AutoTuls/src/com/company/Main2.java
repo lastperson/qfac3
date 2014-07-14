@@ -35,7 +35,18 @@ public class Main2 {
                 + ", Color - " + c.Color+
                 ", isOpened -" + c.isOpened());
 
-        System.out.println(Pirate.coun("asdasdasdsd"));
+        int[] Y =  Pirate.coun("asdasdasdsd");
+
+
+        System.out.println(Y[0] +"  " + Y[1]);
+
+        System.out.println(Pirate.coun2("adss"));
+
+        System.out.println(Pirate.djo("abc"));
+
+        System.out.println(Pirate.djo("abc"));
+
+        System.out.println(Pirate.pol("aortY", 'o'));
 
 
     }
