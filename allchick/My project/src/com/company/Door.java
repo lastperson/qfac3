@@ -7,11 +7,13 @@ public class Door {
     private String material;
     public String color;
     private boolean isOpened;
+    static public int doorsQuantity =0;
 
     public Door(String material, String color, boolean isOpened){
         this.material = material;
         this.color = color;
         this.isOpened = isOpened;
+        doorsQuantity++;
     };
 
     public String materialKind(){
