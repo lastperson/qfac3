@@ -10,12 +10,16 @@ public class Door {
     public String Color;
     private boolean isOpened;
 
+    public static int X=0;
+
     public Door(String Material, String Color, boolean isOpened) {
         this.Material = Material;
         this.Color = Color;
         this.isOpened = isOpened;
 
     }
+
+
 
 
     public String WhatsMaterial() {
