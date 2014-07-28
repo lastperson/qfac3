@@ -8,10 +8,10 @@ public class main1 {
         System.out.println(Someclass.getstr("qwertyuiop"));
         System.out.println(Someclass.dellchars("qqqqqqqqaaaerq", 'q'));
         Building home=new Building();
-        home.makeNewDor("hommmm");
-        home.makeNewDor("hommmm");
+        home.makeNewDor();
+        home.makeNewDor();
         Building dacha=new Building();
-        home.makeNewDor("hommmm");
+        home.makeNewDor();
         Building.getCount();
 
 

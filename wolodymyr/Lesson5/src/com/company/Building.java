@@ -13,7 +13,7 @@ public class Building {
        count+=2;
 
     }
-    public void makeNewDor(String name){
+    public void makeNewDor(){
         Door dor3=new Door("wodden", "black", true);
         count++;
 
