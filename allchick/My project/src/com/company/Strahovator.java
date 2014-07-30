@@ -82,7 +82,7 @@ public class Strahovator {
         System.out.println(text3);
         System.out.println(text4);*/
 
-        System.out.println(returnValue(3));
+        System.out.println(returnValue(4));
 
         //webDriver.quit();
     }
