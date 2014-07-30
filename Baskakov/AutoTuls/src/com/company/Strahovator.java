@@ -88,8 +88,6 @@ public class Strahovator {
 
     public static String doo (int b,WebDriver driver ) {
 
-
-
             WebElement osago_text_link = driver.findElement(By.xpath("//div[@class='main-content']/../div[2]/div["+b+"]/div/span/a"));
 
             return osago_text_link.getText();
