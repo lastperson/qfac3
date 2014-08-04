@@ -21,8 +21,8 @@ public class Bas {
         if(driver==null) {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-            driver.getCurrentUrl().contains("http://angel.net/~nic/passwd.current.html");
-            driver.navigate().refresh();
+            driver.get("http://angel.net/~nic/passwd.current.html");
+            //driver.navigate().refresh();
 
         }
         System.out.println("DONE");
@@ -30,6 +30,7 @@ public class Bas {
     }
     @AfterClass
     public static void test9(){
+
         driver.quit();
     }
 }
