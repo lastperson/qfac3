@@ -58,8 +58,56 @@ public class PasswordGenerator {
         det.selectByVisibleText("для легкового автомобиля");
         Select reg= new Select(insh.findElement(By.xpath("//select[@name='ts_zone']")));
         reg.selectByVisibleText("Киев");
-        Select reg= new Select(insh.findElement(By.xpath("//select[@name='ts_zone']")));
-        reg.selectByVisibleText("Киев");
+        Select crash= new Select(insh.findElement(By.xpath("//select[@name='no_crash_years_qty']")));
+        crash.selectByVisibleText("3 года");
+        Select period= new Select(insh.findElement(By.xpath("//select[@name='period']")));
+        period.selectByVisibleText("1 год");
+        Select dgo= new Select(insh.findElement(By.xpath("//select[@name='dgo']")));
+        dgo.selectByVisibleText("нет");
+        WebElement firstPrice=insh.findElement(By.xpath("//div[@id='osago_calc_result']//tbody/tr[1]//span[@class='price']"));
+        String price=firstPrice.getText();
+        System.out.println(price);
+        WebElement getinsh=insh.findElement(By.xpath("//div[@id='osago_calc_result']//tbody/tr[1]//button"));
+        getinsh.click();
+        WebElement noReg=insh.findElement(By.xpath("//div[@class='content']//div[@class='row']/ul[1]/li[1]/a"));
+        noReg.click();
+        WebElement prime=insh.findElement(By.xpath("//a[@class='btn btn-success']"));
+        prime.click();
+        WebElement driverLicence=insh.findElement(By.xpath("//input[@id='policy_document_type_driver_licence']"));
+        driverLicence.click();
+        WebElement lastName=insh.findElement(By.xpath("//input[@id='policy_last_name']"));
+        String lastNameUA=lastName.getAttribute("placeholder");
+        System.out.println(lastNameUA);
+        WebElement addressSity=insh.findElement(By.xpath("//input[@id='policy_registration_address_city']"));
+        String adsressSityUA=addressSity.getAttribute("placeholder");
+        System.out.println(adsressSityUA);
+        WebElement addressApp=insh.findElement(By.xpath("//input[@id='policy_registration_address_app']"));
+        String adsressAppUA=addressApp.getAttribute("placeholder");
+        System.out.println(adsressAppUA);
+        WebElement homePage=insh.findElement(By.xpath("//h1//img"));
+        homePage.click();
+        WebElement osago=insh.findElement(By.xpath("(//div[@class='service'])[1]/*/a[@class='underlined stronger']"));
+        String osagoPrint=osago.getText();
+        System.out.println(osagoPrint);
+
+        WebElement greenCard=insh.findElement(By.xpath("(//div[@class='service'])[2]/*/a[@class='underlined stronger']"));
+        String greenCardPrint=greenCard.getText();
+        System.out.println(greenCardPrint);
+
+        WebElement kasko=insh.findElement(By.xpath("(//div[@class='service'])[3]/*/a[@class='underlined stronger']"));
+        String kaskoPrint=kasko.getText();
+        System.out.println(kaskoPrint);
+
+        WebElement medInsh=insh.findElement(By.xpath("(//div[@class='service'])[4]/*/a[@class='underlined stronger']"));
+        String medInshPrint=medInsh.getText();
+        System.out.println(medInshPrint);
+
+
+
+        insh.quit();
+
+
+
 
     }
  }
