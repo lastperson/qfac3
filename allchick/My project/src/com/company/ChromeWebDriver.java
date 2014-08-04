@@ -3,6 +3,7 @@ package com.company;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  * Created by user on 7/30/14.
@@ -16,7 +17,9 @@ public class ChromeWebDriver {
 
         if (!isOpened) {
             System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver.exe");
-            webDriver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--lang=en-us");
+            webDriver = new ChromeDriver(options);
 
             isOpened = true;
         }
