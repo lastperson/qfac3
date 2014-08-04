@@ -1,5 +1,7 @@
 package com.company;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.junit.Assert;
@@ -14,9 +16,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 @RunWith(JUnit4.class)
 public class Test2 {
+    //@Before
+    //public void launch(){WebDriver angelNet=passWordInput.angelNet();}
+
     @Test
     public void qwertyFBtw(){
-        boolean result=passWordInput.input("qwerty","FB","tw");
+        boolean result=passWordInput.input("qwerty","FB","TW",passWordInput.angelNet());
         boolean expectedResult=false;
         Assert.assertEquals(expectedResult,result);
     }
@@ -32,33 +37,34 @@ public class Test2 {
     public void sameFilds(){
         WebDriver angelNet=passWordInput.angelNet();
         passWordInput.masterKey("qwerty",angelNet);
-        passWordInput.siteName("fb",angelNet);
+        passWordInput.siteName("fb", angelNet);
         passWordInput.generate(angelNet);
         Assert.assertEquals("qwertyfb",passWordInput.getMasterKey(angelNet)+passWordInput.getSiteName(angelNet));
+
     }
     @Test
     public void smokeTest() {
         WebDriver angelNet = passWordInput.angelNet();
 
-        WebElement chekMKFild = angelNet.findElement(By.xpath("//input[@name='master']"));
+        WebElement chekMKFild = passWordInput.mKeyXpath(angelNet);
         boolean result1 = chekMKFild.isEnabled();
 
-        WebElement chekMKFildName = angelNet.findElement(By.xpath("//input[@name='master']//../../td[1]"));
+        WebElement chekMKFildName = passWordInput.mKeyTextXpath(angelNet);
         boolean result11 = (chekMKFildName.getText().equals("Your master password"));
 
-        WebElement chekSiteFild = angelNet.findElement(By.xpath("//input[@name='site']"));
+        WebElement chekSiteFild = passWordInput.siteInputXpath(angelNet);
         boolean result2 = chekSiteFild.isEnabled();
 
-        WebElement chekSiteFildName = angelNet.findElement(By.xpath("//input[@name='site']/../../td[1]"));
+        WebElement chekSiteFildName = passWordInput.siteNameTextXpath(angelNet);
         boolean result22 = (chekSiteFildName.getText().equals("Site name"));
 
-        WebElement chekPWFild = angelNet.findElement(By.xpath("//input[@name='password']"));
+        WebElement chekPWFild = passWordInput.passWordXpath(angelNet);
         boolean result3 = chekPWFild.isEnabled();
 
-        WebElement chekPWFildName = angelNet.findElement(By.xpath("//input[@name='password']/../../td[1]"));
+        WebElement chekPWFildName = passWordInput.passWordTextXpath(angelNet);
         boolean result33 = (chekPWFildName.getText().equals("Generated password"));
 
-        WebElement chekSubmitButton = angelNet.findElement(By.xpath("//input[@type='submit']"));
+        WebElement chekSubmitButton = passWordInput.submitXpath(angelNet);
         boolean result4 = chekSubmitButton.isEnabled();
         boolean result44 = (chekSubmitButton.getAttribute("value").equals("Generate"));
 
@@ -66,4 +72,7 @@ public class Test2 {
         boolean expectedResult = true;
         Assert.assertEquals(expectedResult, result);
     }
+    //@After
+    //public void close(WebDriver angelNet){
+        //passWordInput.close(angelNet);}
 }
