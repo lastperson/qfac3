@@ -27,29 +27,17 @@ public class PassGenforTest {
 
     }
     public static String Pas1(String password){
-        WebElement a = w.findElement(By.xpath("//input[@type='password']"));
-        a.clear();
-        a.sendKeys(password);
-        WebElement b=w.findElement(By.xpath("//input[@autocorrect='off']"));
-        b.clear();
-        WebElement Butt = w.findElement(By.xpath("//input[@value='Generate']"));
-        Butt.click();
-        WebElement genPass  = w.findElement(By.xpath("//input[@name='password']"));
-        String passw=genPass.getAttribute("value");
-        return passw;
+        GeneretPassword.masterParol(password);
+        GeneretPassword.clearSite();
+        GeneretPassword.gener();
+        return GeneretPassword.getGenSite();
     }
     public static String Pas2(String siteName){
-        WebElement a = w.findElement(By.xpath("//input[@type='password']"));
-        a.clear();
-        WebElement b=w.findElement(By.xpath("//input[@autocorrect='off']"));
-        b.clear();
-        b.sendKeys(siteName);
-        WebElement Butt = w.findElement(By.xpath("//input[@value='Generate']"));
-        Butt.click();
-        WebElement genPass  = w.findElement(By.xpath("//input[@name='password']"));
-        String passw=genPass.getAttribute("value");
-        w.quit();
-        return passw;
+        GeneretPassword.clearPass();
+        GeneretPassword.site(siteName);
+        GeneretPassword.gener();
+        //w.quit();
+        return GeneretPassword.getGenSite();
 
 
     }

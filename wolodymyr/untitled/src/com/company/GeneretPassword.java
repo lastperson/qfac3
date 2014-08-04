@@ -30,6 +30,7 @@ public class GeneretPassword {
     public static String getPas(){
         WebElement a = w.findElement(By.xpath("//input[@type='password']"));
         System.out.println(a.getAttribute("value"));
+
         return a.getAttribute("value");
 
     }
@@ -45,6 +46,40 @@ public class GeneretPassword {
         return passw;
 
     }
+    public static void clearPass() {
+        WebElement a = w.findElement(By.xpath("//input[@type='password']"));
+        a.clear();
+
+    }
+    public static void clearSite() {
+        WebElement b=w.findElement(By.xpath("//input[@autocorrect='off']"));
+        b.clear();
+
+    }
+    public  static Boolean isPas(){
+        Systt();
+        WebElement a = PassGenforTest.w.findElement(By.xpath("//input[@type='password']"));
+        return a.isEnabled();
+    }
+    public  static Boolean isSite(){
+        WebElement b=w.findElement(By.xpath("//input[@autocorrect='off']"));
+        return b.isEnabled();
+    }
+    public  static Boolean isGenPas(){
+        WebElement b=w.findElement(By.xpath("//input[@name='password']"));
+        return b.isEnabled();
+    }
+    public  static Boolean isBut(){
+        WebElement b=w.findElement(By.xpath("//input[@value='Generate']"));
+        return b.isEnabled();
+    }
+    public  static String isText1(){
+        WebElement b=w.findElement(By.xpath("//h1"));
+        System.out.println(b.getAttribute("text"));
+        return b.getAttribute("text");
+    }
+
+
 
 
 
