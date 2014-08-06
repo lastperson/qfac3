@@ -10,15 +10,15 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver","D:\\2AutomationCourseJava\\chromedriver_win32\\chromedriver.exe");
+        /*System.setProperty("webdriver.chrome.driver","D:\\2AutomationCourseJava\\chromedriver_win32\\chromedriver.exe");
         WebDriver w=new ChromeDriver();
         w.get("http://google.com");
         WebElement we1=w.findElement(By.name("q"));
         we1.sendKeys("QA Factory");
         WebElement we2=w.findElement(By.id("gbqfb"));
         we2.click();
-        while (w.findElements(By.id("rso")).size()<10) {}
-        WebElement we3=w.findElement(By.id("rso"));
+        while (w.findElements(By.id("res")).size()<10) {}
+        WebElement we3=w.findElement(By.id("res"));
 
         List<WebElement> l=we3.findElements(By.tagName("a"));
         int i;
@@ -29,7 +29,8 @@ public class Main {
         System.out.println(address);
         i=i+1;}
 
-        //w.quit();
+        //w.quit();*/
+
 
     }
     }
