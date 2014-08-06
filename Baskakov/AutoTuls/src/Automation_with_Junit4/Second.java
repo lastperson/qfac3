@@ -91,6 +91,10 @@ public static void gat_value_from_field(){
         WebElement text_button_gen = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[3]/td/input"));
         return text_button_gen;
     }
+    public static WebElement text_generate_master_pwd(){
+        WebElement text_generate_pwd=driver.findElement(By.xpath("/html/body/form/table/tbody/tr[4]/td[1]"));
+        return text_generate_pwd;
+    }
 
     @Test
     public void test999() throws InterruptedException {
@@ -137,6 +141,13 @@ public static void gat_value_from_field(){
         WebElement text_generate = text_befor_button_gen();
                 String d = "Generate";
         Assert.assertEquals(d,text_generate.getAttribute("value"));
+
+        WebElement Generate_password = element_master_paswd();
+        Assert.assertEquals(true, Generate_password.isEnabled());
+
+        WebElement text_generate_password_field = text_generate_master_pwd();
+         String e = "Generated password";
+        Assert.assertEquals(e,text_generate_password_field.getText());
     }
 
 

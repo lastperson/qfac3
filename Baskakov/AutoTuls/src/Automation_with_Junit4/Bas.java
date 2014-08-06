@@ -21,7 +21,8 @@ public class Bas {
         if(driver==null) {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-            driver.get("http://angel.net/~nic/passwd.current.html");
+            //driver.get("http://angel.net/~nic/passwd.current.html");
+            driver.get("https://translate.google.com.ua");
             //driver.navigate().refresh();
 
         }
@@ -31,6 +32,6 @@ public class Bas {
     @AfterClass
     public static void test9(){
 
-        driver.quit();
+        //driver.quit();
     }
 }
