@@ -28,7 +28,8 @@ public class Translater extends  Bas{
         return button_ukrainian_left;
     }
     public  static WebElement selectLanguage_left (){
-        WebElement button_selectLanguage_left = driver.findElement(By.xpath("//*[@id=\"gt-sl-sugg\"]/div[4]"));
+        WebElement button_selectLanguage_left = driver.findElement(By.xpath("//*[@id='gt-sl-gms']"));
+        button_selectLanguage_left.click();
         return button_selectLanguage_left;
     }
 
@@ -59,12 +60,14 @@ public static WebElement button_translate(){
     }
     public static WebElement right_field_for_traslate_words(){
         WebElement right_field_for_traslate_words = driver.findElement(By.xpath("//*[@id=\"result_box\"]"));
+        driver.findElements(By.xpath("//*[@id=\"result_box\"]"));
         right_field_for_traslate_words.click();
         return right_field_for_traslate_words;
     }
+    public static void WebElement (){
+        driver.findElements(By.xpath("//*[@id=\"result_box\"]"));
 
-    //Polskiy  --   //table/tbody/tr/td[5]/div/div[11]/div
-
+    }
 
 @Test
 public void test_1(){
@@ -95,12 +98,4 @@ public void test_1(){
     Assert.assertEquals(true,button_translate.isEnabled());
 
 }
-
-
-
-
-
-
-
-
     }
