@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class translator {
     public static WebDriver Driwer;
     public static void Start(){
-        System.setProperty("webdriver.chrome.driver", "D:\\2AutomationCourseJava на Мамин ноутбук ASUS (192.168.9.88)\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "//media//Data//Instal//Driver//chromedriver");
         ChromeOptions o = new ChromeOptions();
         o.addArguments("--lang=en-us");
         WebDriver cw=new ChromeDriver(o);
@@ -31,24 +31,26 @@ public class translator {
     public static boolean isButonAvbyxpath (String idButton) {
         return Driwer.findElement(By.xpath(idButton)).isEnabled();
     }
-    public static String getTword(){
-        if (Driwer.findElement(By.xpath("//span[@class='hps'])")).isEnabled()){
-            return Driwer.findElement(By.xpath("//span[@class='hps'])")).getText();
+    public static String getTword() throws InterruptedException {
+        Thread.sleep(500L);
+        if (Driwer.findElement(By.xpath("//span[@class='hps']")).isEnabled()){
+            return Driwer.findElement(By.xpath("//span[@class='hps']")).getText();
         } else {
             return "";}
     }
     public static void enterWord(String word){
         Driwer.findElement(By.id("source")).sendKeys(word);
     }
-    public static void ClickByttonbyID (){
+    public static void ClickButtonbyID (String id){
         Driwer.findElement(By.id("gt-submit")).click();
-    }
-    public static String getAriaPressed(String xpath){
-        return  Driwer.findElement(By.xpath(xpath)).getAttribute("aria-pressed");
     }
     public static void ClickButtonbyXpath(String xpath){
         Driwer.findElement(By.xpath(xpath)).click();
     }
+    public static String getAriaPressed(String xpath){
+        return  Driwer.findElement(By.xpath(xpath)).getAttribute("aria-pressed");
+    }
+
 
 
 }

@@ -29,7 +29,7 @@ public void tranlation() throws InterruptedException {
     translator.selectLanguageS("gt-sl-gms", "//div[@id='gt-sl-gms-menu']//div[contains(text(), 'англ')]");
     translator.selectLanguageS("gt-tl-gms", "//div[@id='gt-tl-gms-menu']//div[contains(text(), 'рос')]");
     translator.enterWord("box");
-    translator.Tranlate();
+    translator.ClickButtonbyID("gt-submit");
     Assert.assertEquals(translator.getTword(), "коробка");
     }
     @Test
@@ -79,11 +79,7 @@ public void tranlation() throws InterruptedException {
     public void isTextS(){
         Assert.assertTrue(translator.isButonAvbyid("source"));
     }
-    @Test
-    public void isSelected(){
-        translator.isButActive("//div[@id='gt-sl-sugg']/div[1]");
 
-    }
 
 
 
