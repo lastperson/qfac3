@@ -19,7 +19,7 @@ public class GTTestEnUa {
         GT.fillSourceText("fish", gt);
         GT.transLangChoice(gt).click();
         GT.transLangUa(gt).click();
-        while (GT.resultTextXpath(gt).getText()=="");
+        while (!GT.resultTextXpath(gt).getText().equals("риба"));
         Assert.assertEquals("риба", GT.resultTextXpath(gt).getText());
         gt.close();
     }
@@ -31,7 +31,7 @@ public class GTTestEnUa {
         GT.fillSourceText("риба", gt);
         GT.transLangChoice(gt).click();
         GT.transLangEn(gt).click();
-        while (GT.resultTextXpath(gt).getText()=="") ;
+        while (!GT.resultTextXpath(gt).getText().equals("fish")) ;
         Assert.assertEquals("fish", GT.resultTextXpath(gt).getText());
         //gt.close();
     }
@@ -55,6 +55,14 @@ public class GTTestEnUa {
         GT.swapButton(gt).click();
         String result = GT.pressedSourceButton(gt).getText() + GT.pressedTranslateButton(gt).getText();
         Assert.assertEquals("английскийукраинский", result);
+        gt.close();
+    }
+    @Test
+    public void swapEnUk() {
+        WebDriver gt = GT.urlEnUk();
+        GT.swapButton(gt).click();
+        String result = GT.pressedSourceButton(gt).getText() + GT.pressedTranslateButton(gt).getText();
+        Assert.assertEquals("украинскийанглийский", result);
         gt.close();
     }
 }

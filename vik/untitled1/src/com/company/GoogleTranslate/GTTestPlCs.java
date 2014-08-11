@@ -28,17 +28,10 @@ public class GTTestPlCs {
         WebDriver gt = GT.gtLaunch();
         GT.sourceLangChoice(gt).click();
         GT.sourceLangCs(gt).click();
-        GT.fillSourceText("ryby", gt);
         GT.transLangChoice(gt).click();
         GT.transLangPl(gt).click();
-        int i=0;
-        String trans=GT.resultTextXpath(gt).getText();
-        while(trans.length()>3||i<30) {
-            i=i+1;
-        }
-        System.out.println(trans);
-        System.out.println(trans.length());
-        System.out.println(i);
+        GT.fillSourceText("ryby", gt);
+        while (!GT.resultTextXpath(gt).getText().equals("ryb"));
         Assert.assertEquals("ryb", GT.resultTextXpath(gt).getText());
         gt.close();
     }

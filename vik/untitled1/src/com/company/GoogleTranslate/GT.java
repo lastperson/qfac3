@@ -120,4 +120,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
     public static WebElement transLangCs (WebDriver gt) {
         return (gt.findElement(By.xpath("//div[@id=':4h']/div[text()='чешский']")));
     }
+    public static WebElement improveTransButton (WebDriver gt) {
+        return (gt.findElement(By.xpath("//div[@id='gt-res-edit']/span[@class='jfk-button-img']")));
+    }
+    public static WebElement transResult (WebDriver gt) {
+        return (gt.findElement(By.xpath("//div[@id='gt-res-tools']")));
+    }
+    public static WebElement spellMist (WebDriver gt) {
+        return (gt.findElement(By.xpath("//a[@href='javascript:void(0)']")));
+    }
+    public static WebElement hiddenText (WebDriver gt) {
+        return (gt.findElement(By.xpath("//div[@class='jfk-tooltip jfk-tooltip-hide']/div[@class='jfk-tooltip-contentId']")));
+    }
  }

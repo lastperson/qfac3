@@ -5,6 +5,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.Mouse;
 
 /**
  * Created by user on 8/8/14.
@@ -49,5 +52,35 @@ public class test1 {
     public void lang3Enable() {
         Assert.assertEquals(true,GT.language3Xpath(GT.gtLaunch()).isEnabled());
     }
+    @Test
+     public void improveTrans() {
+        WebDriver gt=GT.gtLaunch();
+        GT.fillSourceText("fish", gt);
+        GT.improveTransButton(gt).click();
+        Assert.assertEquals("edit",GT.transResult(gt).getAttribute("class"));
+        //System.out.println(GT.transResult(gt).getAttribute("class"));
+        gt.close();
+    }
+    @Test
+    public void spellCheck() {
+        WebDriver gt=GT.gtLaunch();
+        GT.fillSourceText("bload", gt);
+        while (GT.resultTextXpath(gt).getText().length()<3);
+        GT.spellMist(gt).isEnabled();
+        Assert.assertEquals(true,GT.spellMist(gt).isEnabled());
+        gt.close();
+    }
+    @Test
+    public void mouseMove() {
+        WebDriver gt=GT.gtLaunch();
+        GT.fillSourceText("fish", gt);
+        //while (!GT.resultTextXpath(gt).getText().equals("рыба"));
+        new Actions(gt).moveToElement(GT.improveTransButton(gt)).perform();
+        //wait();
+        new Actions(gt).moveToElement(GT.resultTextXpath(gt)).perform();
+        Assert.assertEquals(GT.hiddenText(gt).getText(),GT.hiddenText(gt).getText());
+        gt.close();
+        System.out.println (GT.hiddenText(gt).getText());
 
+    }
 }
