@@ -5,9 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import javax.security.auth.callback.LanguageCallback;
-import java.awt.*;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -77,7 +77,7 @@ public class GoogleTranslatePage {
     }
 
     public static void checkTranslatedText(String translatedText){
-        Assert.assertEquals(translatedText, ControlTranslatedText().getText());
+        Assert.assertEquals(translatedText, ActualTranslatedText());
     }
 
     private static WebElement ControlTextForTranslation(){
@@ -93,6 +93,29 @@ public class GoogleTranslatePage {
         return controlTranslatedText;
     }
 
+    private static String ActualTranslatedText(){
+        while (ChromeWebDriver.webDriver.findElements(By.xpath("//span[@id = 'result_box']/span")).size() == 0);
+        List<WebElement> controlTranslatedText = ChromeWebDriver.webDriver.
+                findElement(By.xpath("//span[@id = 'result_box']")).findElements(By.tagName("span"));
+        int textLength = controlTranslatedText.size();
+        String actualTranslatedText = "";
+        int i = 1;
+        do{
+            boolean isNewLineExist = ChromeWebDriver.webDriver.findElements(By.xpath("//span[@id = 'result_box']/span[" + i +"]/preceding-sibling::br")).size() != 0;
+            if (isNewLineExist){
+                int quantityOfNewLine = ChromeWebDriver.webDriver.findElements(By.xpath("//span[@id = 'result_box']/span[" + i +"]/preceding-sibling::br")).size();
+                for (int j= 0; j< quantityOfNewLine; j++){
+                    actualTranslatedText = actualTranslatedText + "\n";
+                }
+            }
+            actualTranslatedText = actualTranslatedText + ChromeWebDriver.webDriver.
+                    findElement(By.xpath("//span[@id = 'result_box']/span[" + i + "]")).getText() + " ";
+            i++;
+        }while (i <= textLength);
+
+        return actualTranslatedText.trim();
+    }
+
     public static void ExecuteSetLanguagesForTranslate(String languageForTranslate, String languageNative){
         GoogleTranslatePage.OpenGoogleTranslatePage();
         GoogleTranslatePage.ChooseLanguageForTranslation(languageForTranslate);
@@ -102,10 +125,11 @@ public class GoogleTranslatePage {
         GoogleTranslatePage.CheckUrlBeforeTranslation(languageForTranslate, languageNative);
     }
 
-    public static void ExecuteTranslationText(String textForTranslate){
+    public static void ExecuteTranslationText(String textForTranslate) throws InterruptedException {
         GoogleTranslatePage.enterTextForTranslation(textForTranslate);
         GoogleTranslatePage.checkTextForTranslation(textForTranslate);
         GoogleTranslatePage.TranslateText();
+        Thread.sleep(1000);
     }
 }
 
