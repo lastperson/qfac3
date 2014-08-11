@@ -21,9 +21,19 @@ public class translator {
     public static String butChangeId="gt-swap";
     public static String butInspectL="//div[@id='gt-sl-sugg']/div[5]";
     public static String butSubmit="gt-submit";
+    public static String butLangSEn="//div[@id='gt-sl-gms-menu']//div[contains(text(), 'англ')]";
+    public static String butLangTUk="//div[@id='gt-tl-gms-menu']//div[contains(text(), 'укра')]";
+    public static String butMenuS="gt-sl-gms";
+    public static String butMenuT="gt-tl-gms";
+    public static String butLangSUk="//div[@id='gt-sl-gms-menu']//div[contains(text(), 'укра')]";
+    public static String butLangTEn="//div[@id='gt-tl-gms-menu']//div[contains(text(), 'англ')]";
+    public static String butLangSPol="//div[@id='gt-sl-gms-menu']//div[contains(text(), 'поль')]";
+    public static String butLangSChe="//div[@id='gt-sl-gms-menu']//div[contains(text(), 'чесь')]";
+    public static String butLangTPol="//div[@id='gt-tl-gms-menu']//div[contains(text(), 'поль')]";
+    public static String butLangTChe="//div[@id='gt-tl-gms-menu']//div[contains(text(), 'чесь')]";
 
     public static void Start() {
-        System.setProperty("webdriver.chrome.driver", "//media//Data//Instal//Driver//chromedriver");
+        System.setProperty("webdriver.chrome.driver", "D:\\2AutomationCourseJava на Мамин ноутбук ASUS (192.168.9.88)\\chromedriver.exe");
         ChromeOptions o = new ChromeOptions();
         o.addArguments("--lang=en-us");
         WebDriver cw = new ChromeDriver(o);
@@ -45,7 +55,7 @@ public class translator {
     }
 
     public static String getTword() throws InterruptedException {
-        Thread.sleep(500L);
+        Thread.sleep(900L);
         if (Driwer.findElement(By.xpath("//span[@class='hps']")).isEnabled()) {
             return Driwer.findElement(By.xpath("//span[@class='hps']")).getText();
         } else {
@@ -90,6 +100,13 @@ public class translator {
     public static String isSelectedClickedButton(String xpath) {
         ClickButtonbyXpath(xpath);
         return getAriaPressed(xpath);
+    }
+    public static String selectL_enterWord(String path1, String path2, String word)throws InterruptedException{
+        selectLanguageS(butMenuS, path1);
+        selectLanguageS(butMenuT, path2);
+        translator.enterWord(word);
+        translator.ClickButtonbyID(translator.butSubmit);
+        return getTword();
     }
 
 
