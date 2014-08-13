@@ -48,8 +48,8 @@ public class TestGoogleTranslatePage {
 
     @Test
     public void Translate4() throws InterruptedException {
-        GoogleTranslatePage.ExecuteTranslationText("\n" + "about\n" + "\n" + "\n" + " box");
-        GoogleTranslatePage.checkTranslatedText("про поле");
+        GoogleTranslatePage.ExecuteTranslationText("\n" + "about\n" + "\n" + "\n" + "box\n" + "\n" + "cool\n");
+        GoogleTranslatePage.checkTranslatedText("про це \n" + "\n" +  "\n" + "коробка \n" + "\n" + "круто");
     }
 
     @Test

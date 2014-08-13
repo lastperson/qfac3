@@ -15,10 +15,22 @@ import java.util.Map;
  */
 public class GoogleTranslatePage {
 
+    public static String[] CountriesForTranslate = {"Detect language", "Afrikaans", "Albanian", "Arabic", "Armenian", "Azerbaijani",
+            "Basque", "Belarusian", "Bengali", "Bosnian", "Bulgarian", "Catalan", "Cebuano", "Chinese", "Croatian",
+            "Czech", "Danish", "Dutch", "English", "Esperanto", "Estonian", "Filipino", "Finnish", "French", "Galician",
+            "Georgian", "German", "Greek", "Gujarati", "Haitian Creole", "Hausa", "Hebrew", "Hindi", "Hmong", "Hungarian",
+            "Icelandic", "Igbo", "Indonesian", "Irish", "Italian", "Japanese", "Javanese", "Kannada", "Khmer", "Korean",
+            "Lao", "Latin", "Latvian", "Lithuanian", "Macedonian", "Malay", "Maltese", "Maori", "Marathi", "Mongolian",
+            "Nepali", "Norwegian", "Persian", "Polish", "Portuguese", "Punjabi", "Romanian", "Russian", "Serbian",
+            "Slovak", "Slovenian", "Somali", "Spanish", "Swahili", "Swedish", "Tamil", "Telugu", "Thai", "Turkish",
+            "Ukrainian", "Urdu", "Vietnamese", "Welsh", "Yiddish", "Yoruba", "Zulu"};
+
     public static Map<String, String> LanguageAbbreviation = new HashMap<String, String>();
     static {
         LanguageAbbreviation.put("English", "en");
         LanguageAbbreviation.put("Ukrainian", "uk");
+        LanguageAbbreviation.put("Czech", "cs");
+        LanguageAbbreviation.put("Polish", "pl");
     }
 
     public static void OpenGoogleTranslatePage(){
@@ -39,6 +51,15 @@ public class GoogleTranslatePage {
         String xpathForObject = "//div[@id='gt-sl-gms-menu']//div[contains(text(), '" + language + "')]";
         ChromeWebDriver.webDriver.findElement(By.xpath(xpathForObject)).click();
         CheckLanguageForTranslation(language);
+    }
+
+    public static void SetURLUsingLanguageForTranslation(String languageForTranslate, String languageNative){
+        String languageForTranslateAbbr = LanguageAbbreviation.get(languageForTranslate);
+        String languageNativeAbbr = LanguageAbbreviation.get(languageNative);
+        ChromeWebDriver.OpenSite("https://translate.google.com/" + "#" + languageForTranslateAbbr + "/" + languageNativeAbbr);
+        while (ChromeWebDriver.webDriver.findElements(By.id("source")).size() == 0);
+        CheckLanguageForTranslation(languageForTranslate);
+        CheckNativeLanguage(languageNative);
     }
 
     public static void CheckLanguageForTranslation(String language){
@@ -99,19 +120,26 @@ public class GoogleTranslatePage {
                 findElement(By.xpath("//span[@id = 'result_box']")).findElements(By.tagName("span"));
         int textLength = controlTranslatedText.size();
         String actualTranslatedText = "";
-        int i = 1;
+        int spanCounter = 1;
+        int brAllCounter = 0;
+        int brCurrentCounter;
         do{
-            boolean isNewLineExist = ChromeWebDriver.webDriver.findElements(By.xpath("//span[@id = 'result_box']/span[" + i +"]/preceding-sibling::br")).size() != 0;
-            if (isNewLineExist){
-                int quantityOfNewLine = ChromeWebDriver.webDriver.findElements(By.xpath("//span[@id = 'result_box']/span[" + i +"]/preceding-sibling::br")).size();
-                for (int j= 0; j< quantityOfNewLine; j++){
+            boolean isNewLineExist = ChromeWebDriver.webDriver.
+                    findElements(By.xpath("//span[@id = 'result_box']/span[" + spanCounter +"]/preceding-sibling::br")).size() != 0;
+            if (isNewLineExist && spanCounter!=1){
+                int quantityOfNewLine = ChromeWebDriver.webDriver.
+                        findElements(By.xpath("//span[@id = 'result_box']/span[" + spanCounter +"]/preceding-sibling::br")).size();
+                brCurrentCounter = quantityOfNewLine - brAllCounter;
+                brAllCounter = quantityOfNewLine;
+                for (int j= 0; j< brCurrentCounter; j++){
                     actualTranslatedText = actualTranslatedText + "\n";
+
                 }
             }
             actualTranslatedText = actualTranslatedText + ChromeWebDriver.webDriver.
-                    findElement(By.xpath("//span[@id = 'result_box']/span[" + i + "]")).getText() + " ";
-            i++;
-        }while (i <= textLength);
+                    findElement(By.xpath("//span[@id = 'result_box']/span[" + spanCounter + "]")).getText() + " ";
+            spanCounter++;
+        }while (spanCounter <= textLength);
 
         return actualTranslatedText.trim();
     }
@@ -130,6 +158,15 @@ public class GoogleTranslatePage {
         GoogleTranslatePage.checkTextForTranslation(textForTranslate);
         GoogleTranslatePage.TranslateText();
         Thread.sleep(1000);
+    }
+
+    public static void CheckLanguagesForTranslation(){
+        ChromeWebDriver.webDriver.findElement(By.id("gt-sl-gms")).click();
+        int test = ChromeWebDriver.webDriver.findElements(By.xpath("//div[@class='goog-menuitem-checkbox']")).size();
+        for (int i= 0; i!=test; i++){
+            String xpathForObject = "//div[@id='gt-sl-gms-menu']//div[contains(text(), '" + GoogleTranslatePage.CountriesForTranslate[i] + "')]";
+            ChromeWebDriver.webDriver.findElement(By.xpath(xpathForObject)).click();
+        }
     }
 }
 

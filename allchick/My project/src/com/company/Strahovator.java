@@ -81,10 +81,18 @@ public class Strahovator {
         System.out.println(text2);
         System.out.println(text3);
         System.out.println(text4);*/
+        ChromeWebDriver.OpenSite("https://translate.google.com/");
+        while (ChromeWebDriver.webDriver.findElements(By.id("source")).size() == 0);
+        ChromeWebDriver.webDriver.findElement(By.id("gt-sl-gms")).click();
+        int test = ChromeWebDriver.webDriver.findElements(By.xpath("//div[@class='goog-menuitem-checkbox']")).size();
+        for (int i=0; i!=test; i++){
+            WebElement test2 = ChromeWebDriver.webDriver.findElements(By.xpath("//div[@class='goog-menuitem-checkbox']/..")).get(i);
+            String test3 = test2.getText();
+            System.out.print("\"" + test3 + "\"" + "," + " ");
+        }
 
-        System.out.println(returnValue(4));
 
-        //webDriver.quit();
+        ChromeWebDriver.webDriver.quit();
     }
 
     public static String returnValue(int value){
