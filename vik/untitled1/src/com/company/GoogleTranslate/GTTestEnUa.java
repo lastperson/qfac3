@@ -33,7 +33,7 @@ public class GTTestEnUa {
         GT.transLangEn(gt).click();
         while (!GT.resultTextXpath(gt).getText().equals("fish")) ;
         Assert.assertEquals("fish", GT.resultTextXpath(gt).getText());
-        //gt.close();
+        gt.close();
     }
     @Test
     public void urlUkEn() {

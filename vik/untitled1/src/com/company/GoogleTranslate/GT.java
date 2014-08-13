@@ -73,9 +73,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
     public static WebElement language6Xpath (WebDriver gt){
         return (gt.findElement(By.xpath("//div[@id='gt-tl-sugg']/div[3]")));
     }
-    public static WebElement siteInputXpath (WebDriver gt) {
-        return (gt.findElement(By.xpath("//input[@name='site']")));
-    }
     public static void fillSourceText (String word, WebDriver gt) {
         WebElement wordToTranslate = GT.sourceTextXpath(gt);
         wordToTranslate.sendKeys(word);
@@ -132,4 +129,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
     public static WebElement hiddenText (WebDriver gt) {
         return (gt.findElement(By.xpath("//div[@class='jfk-tooltip jfk-tooltip-hide']/div[@class='jfk-tooltip-contentId']")));
     }
+    //public static  hiddenText (WebDriver gt) {
+       // return (gt.findElement(By.xpath("//div[@class='jfk-tooltip jfk-tooltip-hide']/div[@class='jfk-tooltip-contentId']")));
+    //}
  }
