@@ -20,34 +20,47 @@ public class pol_che {
 //        translator.Driwer.quit();
 //
 //    }
-    @Test
+
     public void polChe1() throws InterruptedException {
-        String gettingWord =translator.selectL_enterWord(translator.butLangSPol, translator.butLangTChe, "ściana");
-        Assert.assertEquals(gettingWord, "zeď");
+        translator.selectL_enterWord(translator.butLangSPol, translator.butLangTChe, "ściana");
+        String actualWord = "zeď";
+        String exceptedWord = translator.getTword2(actualWord, translator.transWord);
+        Assert.assertEquals(exceptedWord, actualWord);
     }
     @Test
-    public void polChe2() throws InterruptedException {
-        String gettingWord =translator.selectL_enterWord(translator.butLangSPol, translator.butLangTChe, "okno");
-        Assert.assertEquals(gettingWord, "okno");
+      public void polChe2() throws InterruptedException {
+        translator.selectL_enterWord(translator.butLangSPol, translator.butLangTChe, "ulica");
+        String actualWord = "ulice";
+        String exceptedWord = translator.getTword2(actualWord, translator.transWord);
+        Assert.assertEquals(exceptedWord, actualWord);
     }
     @Test
     public void polChe3() throws InterruptedException {
-        String gettingWord =translator.selectL_enterWord(translator.butLangSPol, translator.butLangTChe, "ulica");
-        Assert.assertEquals(gettingWord, "ulice");
+        translator.selectL_enterWord(translator.butLangSPol, translator.butLangTChe, "okno");
+        String actualWord = "okno";
+        String exceptedWord = translator.getTword2(actualWord, translator.transWord);
+        Assert.assertEquals(exceptedWord, actualWord);
     }
+
     @Test
     public void chePol1() throws InterruptedException {
-        String gettingWord =translator.selectL_enterWord(translator.butLangSChe, translator.butLangTPol, "kola");
-        Assert.assertEquals(gettingWord, "koła");
+        translator.selectL_enterWord(translator.butLangSChe, translator.butLangTPol, "kola");
+        String actualWord ="koła" ;
+        String exceptedWord = translator.getTword2(actualWord, translator.transWord);
+        Assert.assertEquals(exceptedWord, actualWord);
     }
     @Test
     public void chePol2() throws InterruptedException {
-        String gettingWord =translator.selectL_enterWord(translator.butLangSChe, translator.butLangTPol, "pruhaty");
-        Assert.assertEquals(gettingWord, "paski");
+        translator.selectL_enterWord(translator.butLangSChe, translator.butLangTPol, "pruhaty");
+        String actualWord ="paski" ;
+        String exceptedWord = translator.getTword2(actualWord, translator.transWord);
+        Assert.assertEquals(exceptedWord, actualWord);
     }@Test
      public void chePol3() throws InterruptedException {
-        String gettingWord =translator.selectL_enterWord(translator.butLangSChe, translator.butLangTPol, "dveře");
-        Assert.assertEquals(gettingWord, "drzwi");
+        translator.selectL_enterWord(translator.butLangSChe, translator.butLangTPol, "dveře");
+        String actualWord ="drzwi" ;
+        String exceptedWord = translator.getTword2(actualWord, translator.transWord);
+        Assert.assertEquals(exceptedWord, actualWord);
     }
 
 }

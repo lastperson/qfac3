@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by user on 8/6/14.
  */
@@ -31,6 +33,7 @@ public class translator {
     public static String butLangSChe="//div[@id='gt-sl-gms-menu']//div[contains(text(), 'чесь')]";
     public static String butLangTPol="//div[@id='gt-tl-gms-menu']//div[contains(text(), 'поль')]";
     public static String butLangTChe="//div[@id='gt-tl-gms-menu']//div[contains(text(), 'чесь')]";
+    public static String transWord="//span[@class='hps']";
 
     public static void Start() {
         System.setProperty("webdriver.chrome.driver", "D:\\2AutomationCourseJava на Мамин ноутбук ASUS (192.168.9.88)\\chromedriver.exe");
@@ -38,9 +41,10 @@ public class translator {
         o.addArguments("--lang=en-us");
         WebDriver cw = new ChromeDriver(o);
         cw.get("https://translate.google.com.ua/");
-        Driwer = cw;
-    }
+        cw.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        Driwer=cw;
 
+    }
     public static void selectLanguageS(String id, String xpath) {
         Driwer.findElement(By.id(id)).click();
         Driwer.findElement(By.xpath(xpath)).click();
@@ -54,13 +58,22 @@ public class translator {
         return Driwer.findElement(By.xpath(idButton)).isEnabled();
     }
 
-    public static String getTword() throws InterruptedException {
-        Thread.sleep(900L);
-        if (Driwer.findElement(By.xpath("//span[@class='hps']")).isEnabled()) {
-            return Driwer.findElement(By.xpath("//span[@class='hps']")).getText();
-        } else {
-            return "";
+    public static String getTword() throws InterruptedException{
+//        Thread.sleep(500L);
+        return Driwer.findElement(By.xpath("//span[@class='hps']")).getText();
+
+    }
+    public static String getTword2 (String exWord, String xpath) throws InterruptedException {
+        int time=0;
+        xpath=xpath+"[text()='"+exWord+"']";
+        while (time<100) {
+            if (Driwer.findElements(By.xpath(xpath)).size()==0){
+                Thread.sleep(100L);
+                time++;
+            } else {break;}
+
         }
+        return Driwer.findElement(By.xpath(xpath)).getText();
     }
 
     public static void enterWord(String word) {
@@ -101,12 +114,11 @@ public class translator {
         ClickButtonbyXpath(xpath);
         return getAriaPressed(xpath);
     }
-    public static String selectL_enterWord(String path1, String path2, String word)throws InterruptedException{
+    public static void selectL_enterWord(String path1, String path2, String word)throws InterruptedException{
         selectLanguageS(butMenuS, path1);
         selectLanguageS(butMenuT, path2);
         translator.enterWord(word);
         translator.ClickButtonbyID(translator.butSubmit);
-        return getTword();
     }
 
 
